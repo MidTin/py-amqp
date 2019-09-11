@@ -79,6 +79,7 @@ def frame_handler(connection, callback,
             callback(channel, msg.frame_method, msg.frame_args, msg)
         elif frame_type == 8:
             # bytes_recv already updated
+            connection.send_heartbeat()
             return False
         return True
 
